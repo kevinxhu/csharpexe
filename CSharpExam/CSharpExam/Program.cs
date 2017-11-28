@@ -55,6 +55,8 @@ namespace CSharpExec
             DisplayGenericType(tT, "Type parameter T from Base<T>");
             DisplayGenericType(tF, "Field type, G<Derived<V>>");
             DisplayGenericType(tNested, "Nested type in Derived<V>");
+
+            DemoNullable();
         }
 
         public static void DisplayGenericType(Type t, string caption)
@@ -70,6 +72,27 @@ namespace CSharpExec
                 t.ContainsGenericParameters);
             Console.WriteLine("\t       IsGenericParameter: {0}",
                 t.IsGenericParameter);
+        }
+
+        public static void DemoNullable()
+        {
+            int? nullable = 5;
+            object boxed = nullable;
+
+            Console.WriteLine(boxed.GetType());
+
+            int normal = (int)boxed;
+            Console.WriteLine(normal);
+
+            nullable = (int?)boxed;
+            Console.WriteLine(nullable);
+
+            nullable = new int?();
+            boxed = nullable;
+            Console.WriteLine(boxed == null);
+
+            nullable = (int?)boxed;
+            Console.WriteLine(nullable.HasValue);
         }
     }
 }
