@@ -76,5 +76,40 @@ namespace WindowsFormsApp1
 
             DemoLocalVarInst();
         }
+
+        //
+        // Shared variables and non-shared variables
+        //
+        private void button2_Click(object sender, EventArgs e)
+        {
+            richTextBox1.AppendText("== Shared variables and non-shared variables ==" + Environment.NewLine);
+
+            MethodInvoker[] delegates = new MethodInvoker[2];
+
+            int outside = 0;
+
+            for(int i = 0; i < 2; i++)
+            {
+                int inside = 0;
+
+                delegates[i] = delegate
+                {
+                    richTextBox1.AppendText(outside.ToString() + "-" + inside.ToString() + Environment.NewLine);
+
+                    outside++;
+                    inside++;
+                };
+            }
+
+            MethodInvoker first = delegates[0];
+            MethodInvoker second = delegates[1];
+
+            first();
+            first();
+            first();
+
+            second();
+            second();
+        }
     }
 }
