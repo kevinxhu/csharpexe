@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpExam", "CSharpExam\CSharpExam.csproj", "{03803895-6B02-4D55-997E-2366B8B27A39}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{56E29E21-16EA-49C6-861C-465031EEA1EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{03803895-6B02-4D55-997E-2366B8B27A39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03803895-6B02-4D55-997E-2366B8B27A39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03803895-6B02-4D55-997E-2366B8B27A39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56E29E21-16EA-49C6-861C-465031EEA1EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56E29E21-16EA-49C6-861C-465031EEA1EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56E29E21-16EA-49C6-861C-465031EEA1EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56E29E21-16EA-49C6-861C-465031EEA1EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
