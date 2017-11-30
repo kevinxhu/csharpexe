@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -110,6 +111,50 @@ namespace WindowsFormsApp1
 
             second();
             second();
+        }
+
+        //
+        // IEnumerator
+        //
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string Padding = new string(' ', 30);
+
+            IEnumerable<int> CreateEnumrable()
+            {
+                richTextBox1.AppendText(String.Format("{0}Start of CreateEnumrable()", Padding) + Environment.NewLine);
+
+                for(int i = 0; i < 3; i++)
+                {
+                    richTextBox1.AppendText(string.Format("{0}About to yield {1}", Padding, i) + Environment.NewLine);
+                    yield return i;
+
+                    richTextBox1.AppendText(string.Format("{0}After yield", Padding) + Environment.NewLine);
+                }
+                richTextBox1.AppendText(string.Format("{0}yielding final value", Padding) + Environment.NewLine);
+                yield return -1;
+                richTextBox1.AppendText(string.Format("{0}End of CreateEnumerable()", Padding) + Environment.NewLine);
+            }
+
+            IEnumerable<int> iterable = CreateEnumrable();
+            IEnumerator<int> iterator = iterable.GetEnumerator();
+
+            richTextBox1.AppendText(string.Format("Starting to iterate") + Environment.NewLine);
+            
+            while(true)
+            {
+                richTextBox1.AppendText("Calling MoveNext()" + Environment.NewLine);
+                bool result = iterator.MoveNext();
+                richTextBox1.AppendText(string.Format("... MoveNext result={0}", result));
+
+                if(!result)
+                {
+                    break;
+                }
+
+                richTextBox1.AppendText("Fectching current..." + Environment.NewLine);
+                richTextBox1.AppendText(string.Format("... Current result={0}", iterator.Current));
+            }
         }
     }
 }
